@@ -21,12 +21,15 @@ This repository contains production-ready bash scripts I use daily to automate c
 
 ## 🚀 Quick Start
 
-```bash
+bash
+```
 git clone https://github.com/Gryphodt/sre-linux-scripts.git
 cd sre-linux-scripts
 chmod +x */*.sh
+```
 📖 Usage Examples
 bash
+```
 # Remove logs older than 7 days from /var/log
 ./logs/log-cleaner.sh /var/log 7
 
@@ -41,10 +44,12 @@ bash
 
 # Keep only the 5 most recent backups in /backup
 ./backup/backup-rotate.sh /backup 5
+```
 ⏰ Cron Automation Examples
 Add these lines to your crontab (crontab -e):
 
 cron
+```
 # Every hour: clean old logs
 0 * * * * /home/gryphodt/sre-linux-scripts/logs/log-cleaner.sh /var/log 7
 
@@ -56,6 +61,7 @@ cron
 
 # Every hour: restart stuck pods in default namespace
 0 * * * * /home/gryphodt/sre-linux-scripts/k8s/pod-restart-stuck.sh default
+```
 🛠️ Script Details
 log-cleaner.sh
 Arguments: [directory] [days] [pattern]
