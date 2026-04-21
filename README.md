@@ -53,16 +53,16 @@ Add these lines to your crontab (crontab -e):
 cron
 ```
 # Every hour: clean old logs
-0 * * * * /home/gryphodt/sre-linux-scripts/logs/log-cleaner.sh /var/log 7
+0 * * * * /home/{Sysname}/sre-linux-scripts/logs/log-cleaner.sh /var/log 7
 
 # Every 5 minutes: health check (logs to file)
-*/5 * * * * /home/gryphodt/sre-linux-scripts/monitoring/health-check.sh >> /var/log/health.log 2>&1
+*/5 * * * * /home/{Sysname}/sre-linux-scripts/monitoring/health-check.sh >> /var/log/health.log 2>&1
 
 # Daily at 2am: Docker cleanup
-0 2 * * * /home/gryphodt/sre-linux-scripts/containers/docker-cleaner.sh
+0 2 * * * /home/{Sysname}/sre-linux-scripts/containers/docker-cleaner.sh
 
 # Every hour: restart stuck pods in default namespace
-0 * * * * /home/gryphodt/sre-linux-scripts/k8s/pod-restart-stuck.sh default
+0 * * * * /home/{Sysname}/sre-linux-scripts/k8s/pod-restart-stuck.sh default
 ```
 ## 🛠️ Script Details
 
